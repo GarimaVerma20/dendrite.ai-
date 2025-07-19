@@ -1,11 +1,22 @@
 # Dendrite.ai
-This assignment is to parse the JSON file provided(algoparams_from_ui) and kick off in sequence the following machine learning steps programmatically like 
-
-feature handling, feature generation and model building using Grid search after parsing hyper params. 
+## Problem Statement
+This assignment is to parse the JSON file provided(algoparams_from_ui) and kick off in sequence the following machine learning steps programmatically like feature handling, feature generation and model building using Grid search after parsing hyper parameters. 
 
 Used scikit-learn-compatible machine learning pipeline that automates key stages of **feature handling**, **feature reduction**, and **model selection**.
-## Key Features
-- ### 1. Feature Handling
+
+## Approach 
+
+- The goal was to:
+
+   - Parse this JSON file
+
+   - Execute all Machine Learning steps in sequence
+
+   - Dynamically adapt to different configurations
+ 
+   - Scikit-learn-compatible pipeline architecture
+### Key Features
+- #### 1. Feature Handling
   
    - Handles both numerical and textual data based on defined strategies. 
    
@@ -13,7 +24,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **Text Features:** Supports hashing vectorization. 
    
-- ### 2. Feature Reduction
+- #### 2. Feature Reduction
   
    - **No Reduction:** Skips this step. 
    
@@ -23,7 +34,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **PCA:** Applies Principal Component Analysis to keep top n components. 
 
-- ### 3. Model Selection with Grid Search
+- #### 3. Model Selection with Grid Search
   
    - Automatically selects the best model from a predefined list. 
    
@@ -31,7 +42,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - Evaluates multiple models (like Linear Regression, Decision Tree, Random Forest, etc.) along with their hyperparameter grids. 
    
-   - Uses cross-validation to ensure robust performance across folds. 
+   - Automatically runs GridSearchCV with user-defined hyperparameters. 
    
    - Returns the best model, its parameters, and evaluation metrics. 
 
@@ -62,4 +73,6 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    - GridSearchCV 
    
    - JSON for configuration         
-   
+
+
+**"Given the ** Iris dataset and a config that uses tree-based feature reduction and Random Forest with tuning, the pipeline outputs the best-performing model with best score 0.96."**
