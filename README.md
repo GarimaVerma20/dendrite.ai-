@@ -39,7 +39,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
   
    - **DataFrame X:** Feature set as a pandas DataFrame 
    
-   - **Target y:** Target values (label-encoded if necessary) 
+   - **Target y:** Target values  
    
    - **Steps :** 
    
