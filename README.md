@@ -74,6 +74,8 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **PCA:** Applies Principal Component Analysis to keep top n components.
 
+     <pre> ### 🔻 Feature Reduction Logic ``` FeatureReductionTransformer │ ├── Read "reduction_method" from JSON │ ├── If "No Reduction": │ └── Return input features unchanged │ ├── If "Correlation with Target": │ ├── Compute correlation of each feature with y │ └── Select top K most correlated features │ ├── If "Tree-Based": │ ├── Train RandomForest using input X and y │ ├── Extract feature importances │ └── Select top K important features │ ├── If "PCA": │ ├── Standardize input features │ ├── Fit PCA on standardized X │ └── Keep top N principal components │ └──► Output: Reduced Feature Set (X_transformed) ``` </pre>
+
 '''     FeatureReductionTransformer
 │
 ├── Read "reduction_method" from JSON
