@@ -43,11 +43,11 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **Steps :** 
    
-         - **feature_handling:** Specifies treatment strategy per feature (e.g., imputation, hashing) 
+       - **feature_handling:** Specifies treatment strategy per feature (e.g., imputation, hashing) 
          
-         - **feature_reduction:** Defines parameters for feature selection 
+       - **feature_reduction:** Defines parameters for feature selection 
          
-         - **model_selection:** Lists models and hyperparameters for grid search 
+       - **model_selection:** Lists models and hyperparameters for grid search 
 
 
 - ## Technologies Used
