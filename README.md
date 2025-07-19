@@ -24,7 +24,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **Text Features:** Supports hashing vectorization.
  
-     FeatureHandlerTransformer
+'''     FeatureHandlerTransformer
 │
 ├── For Each Feature in JSON:
 │   └── If "is_selected" is True:
@@ -62,7 +62,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
 │    └────────────────────────────┘
 │
 └──► Output: Transformed DataFrame (with numeric and/or hashed columns)
-
+'''
    
 - #### 2. Feature Reduction
   
@@ -74,7 +74,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **PCA:** Applies Principal Component Analysis to keep top n components.
 
-     FeatureReductionTransformer
+'''     FeatureReductionTransformer
 │
 ├── Read "reduction_method" from JSON
 │
@@ -96,7 +96,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
 │   └── Keep top N principal components
 │
 └──► Output: Reduced Feature Set (X_transformed)
-
+'''
 
 - #### 3. Model Selection with Grid Search
   
@@ -110,7 +110,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - Returns the best model, its parameters, and evaluation metrics.
  
-     ModelSelectionWithGridSearch
+'''     ModelSelectionWithGridSearch
 │
 ├── Read model list & hyperparameter grid from JSON
 │
@@ -126,7 +126,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
     ├── Best estimator (model)
     ├── Best parameters
     └── Evaluation metrics (e.g., RMSE, Accuracy)
-
+'''
 
 - ## Inputs
   
