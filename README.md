@@ -24,46 +24,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **Text Features:** Supports hashing vectorization.
  
-'''     FeatureHandlerTransformer
-│
-├── For Each Feature in JSON:
-│   └── If "is_selected" is True:
-│
-│       ┌───────────────┐
-│       │ Feature Type? │
-│       └──────┬────────┘
-│              │
-│     ┌────────▼────────┐
-│     │ Numerical       │
-│     └────────┬────────┘
-│              │
-│    ┌─────────▼──────────┐
-│    │ Missing Handling   │
-│    ├────────────────────┤
-│    │ "Average of values"│──► Fill NaNs with mean
-│    │ "custom"           │──► Fill NaNs with given value
-│    └────────────────────┘
-│
-│
-│     ┌────────▼────────┐
-│     │ Text            │
-│     └────────┬────────┘
-│              │
-│    ┌─────────▼────────────┐
-│    │ Missing Handling     │
-│    └──────────────────────┘
-│       Fill NaNs with "missing_text"
-│
-│    ┌────────────────────────────┐
-│    │ Text Encoding (optional)   │
-│    ├────────────────────────────┤
-│    │ "Tokenize and hash"        │──► Apply HashingVectorizer  
-│    │                            │     → Creates N hashed columns  
-│    └────────────────────────────┘
-│
-└──► Output: Transformed DataFrame (with numeric and/or hashed columns)
-'''
-   
+
 - #### 2. Feature Reduction
   
    - **No Reduction:** Skips this step. 
@@ -74,31 +35,7 @@ Used scikit-learn-compatible machine learning pipeline that automates key stages
    
    - **PCA:** Applies Principal Component Analysis to keep top n components.
 
-    <pre>
-FeatureReductionTransformer
-│
-├── Read "reduction_method" from JSON
-│
-├── If "No Reduction":
-│   └── Return input features unchanged
-│
-├── If "Correlation with Target":
-│   ├── Compute correlation of each feature with y
-│   └── Select top K most correlated features
-│
-├── If "Tree-Based":
-│   ├── Train RandomForest using input X and y
-│   ├── Extract feature importances
-│   └── Select top K important features
-│
-├── If "PCA":
-│   ├── Standardize input features
-│   ├── Fit PCA on standardized X
-│   └── Keep top N principal components
-│
-└──► Output: Reduced Feature Set (X_transformed)
-</pre>
-
+   
 - #### 3. Model Selection with Grid Search
   
    - Automatically selects the best model from a predefined list. 
@@ -111,23 +48,7 @@ FeatureReductionTransformer
    
    - Returns the best model, its parameters, and evaluation metrics.
  
-'''     ModelSelectionWithGridSearch
-│
-├── Read model list & hyperparameter grid from JSON
-│
-├── For each model in list:
-│   ├── Build GridSearchCV object
-│   ├── Perform cross-validation
-│   └── Store best estimator & score
-│
-├── After all models:
-│   └── Pick model with best validation score
-│
-└──► Output:
-    ├── Best estimator (model)
-    ├── Best parameters
-    └── Evaluation metrics (e.g., RMSE, Accuracy)
-'''
+
 
 - ## Inputs
   
